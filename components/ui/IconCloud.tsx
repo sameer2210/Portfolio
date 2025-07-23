@@ -2,21 +2,31 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "next-themes";
+import dynamic from "next/dynamic";
 import {
-  Cloud,
   fetchSimpleIcons,
   ICloud,
   renderSimpleIcon,
   SimpleIcon,
 } from "react-icon-cloud";
 
-export const cloudProps: Omit<ICloud, "children"> = {
+//  Dynamically import Cloud with SSR disabled
+const Cloud = dynamic(
+  () => import("react-icon-cloud").then((mod) => mod.Cloud),
+  {
+    ssr: false,
+  }
+);
+
+//  Updated cloud config with better error handling
+const cloudProps: Omit<ICloud, "children"> = {
   containerProps: {
     style: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
       width: "100%",
+      height: "500px",
       paddingTop: 40,
     },
   },
@@ -33,31 +43,43 @@ export const cloudProps: Omit<ICloud, "children"> = {
     outlineColour: "#0000",
     maxSpeed: 0.04,
     minSpeed: 0.02,
-    // dragControl: false,
+    // Add these to prevent NaN errors
+    freezeActive: false,
+    shuffleTags: true,
+    shape: "sphere",
+    radiusX: 1,
+    radiusY: 1,
+    radiusZ: 1,
   },
 };
 
-export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
+//  Enhanced icon rendering with error handling
+const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
   const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
   const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
   const minContrastRatio = theme === "dark" ? 2 : 1.2;
 
-  return renderSimpleIcon({
-    icon,
-    bgHex,
-    fallbackHex,
-    minContrastRatio,
-    size: 42,
-    aProps: {
-      href: undefined,
-      target: undefined,
-      rel: undefined,
-      onClick: (e: any) => e.preventDefault(),
-    },
-  });
+  try {
+    return renderSimpleIcon({
+      icon,
+      bgHex,
+      fallbackHex,
+      minContrastRatio,
+      size: 42,
+      aProps: {
+        href: undefined,
+        target: undefined,
+        rel: undefined,
+        onClick: (e: any) => e.preventDefault(),
+      },
+    });
+  } catch (error) {
+    console.warn(`Failed to render icon: ${icon.slug}`, error);
+    return null;
+  }
 };
 
-export type DynamicCloudProps = {
+type DynamicCloudProps = {
   iconSlugs: string[];
 };
 
@@ -65,22 +87,69 @@ type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 
 export function IconCloud({ iconSlugs }: DynamicCloudProps) {
   const [data, setData] = useState<IconData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const { theme } = useTheme();
 
   useEffect(() => {
-    fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
+    const loadIcons = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        // Filter out problematic slugs that commonly cause 404s
+        const validSlugs = iconSlugs.filter((slug) => {
+          // Common problematic slugs - replace with working alternatives
+          const problematicSlugs = ["java"]; // Add more if needed
+          return !problematicSlugs.includes(slug);
+        });
+
+        // Add working alternatives
+        const updatedSlugs = iconSlugs.map((slug) => {
+          if (slug === "java") return "openjdk"; // Use openjdk instead of java
+          return slug;
+        });
+
+        const iconData = await fetchSimpleIcons({ slugs: updatedSlugs });
+        setData(iconData);
+      } catch (err) {
+        console.error("Failed to fetch icons:", err);
+        setError("Failed to load icons");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadIcons();
   }, [iconSlugs]);
 
   const renderedIcons = useMemo(() => {
-    if (!data) return null;
+    if (!data || loading) return null;
 
-    return Object.values(data.simpleIcons).map((icon) =>
-      renderCustomIcon(icon, theme || "light"),
+    const icons = Object.values(data.simpleIcons)
+      .map((icon) => renderCustomIcon(icon, theme || "light"))
+      .filter(Boolean); // Remove null values from failed renders
+
+    return icons.length > 0 ? icons : null;
+  }, [data, theme, loading]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center w-full h-[500px]">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-purple-500"></div>
+      </div>
     );
-  }, [data, theme]);
+  }
+
+  if (error || !renderedIcons) {
+    return (
+      <div className="flex justify-center items-center w-full h-[500px]">
+        <p className="text-gray-500">Unable to load skill icons</p>
+      </div>
+    );
+  }
 
   return (
-    // @ts-ignore
     <Cloud {...cloudProps}>
       <>{renderedIcons}</>
     </Cloud>

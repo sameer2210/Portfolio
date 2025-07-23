@@ -1,10 +1,11 @@
 "use client";
 import { IconCloud } from "@/components/ui/IconCloud";
 
+// Updated slugs with working alternatives
 const slugs = [
   "typescript",
   "javascript",
-  "java",
+  "openjdk", //  Changed from "java" to "openjdk"
   "html5",
   "css3",
   "react",
@@ -18,6 +19,10 @@ const slugs = [
   "github",
   "figma",
   "tailwindcss",
+  //  Optional: Add more reliable icons
+  // "python",
+  // "postgresql",
+  "redux",
 ];
 
 function Skills() {
