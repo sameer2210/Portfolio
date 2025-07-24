@@ -6,6 +6,10 @@
 
 Welcome to my interactive portfolio! Built with Next.js, Three.js, Framer Motion, and Tailwind CSS, this project showcases my skills, projects, and experience in a visually engaging and modern way.
 
+
+## 🌐 Demo
+
+**Live Site:** [https://your-portfolio-link.com](https://portfolio-coral-two-16.vercel.app/)
 ---
 
 ## 📋 Table of Contents
@@ -33,10 +37,6 @@ This portfolio is designed to highlight my technical expertise, creative approac
 - Modern UI/UX
 - Responsive design
 - Real project showcases
-
-## 🌐 Demo
-
-**Live Site:** [https://your-portfolio-link.com](https://your-portfolio-link.com) <!-- Replace with your actual deployed link -->
 
 ---
 
@@ -70,7 +70,7 @@ This portfolio is designed to highlight my technical expertise, creative approac
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
