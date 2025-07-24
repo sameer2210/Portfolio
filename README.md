@@ -36,7 +36,7 @@ This portfolio is designed to highlight my technical expertise, creative approac
 
 ## 🌐 Demo
 
-**Live Site:** [https://your-portfolio-link.com](https://your-portfolio-link.com) <!-- Replace with your actual deployed link -->
+**Live Site:** [https://your-portfolio-link.com](https://portfolio-git-main-sameer2210s-projects.vercel.app/) <!-- Replace with your actual deployed link -->
 
 ---
 
@@ -70,7 +70,7 @@ This portfolio is designed to highlight my technical expertise, creative approac
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
