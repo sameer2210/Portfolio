@@ -38,6 +38,10 @@ This portfolio is designed to highlight my technical expertise, creative approac
 - Responsive design
 - Real project showcases
 
+## 🌐 Demo
+
+**Live Site:** [https://your-portfolio-link.com](https://your-portfolio-link.com) <!-- Replace with your actual deployed link -->
+
 ---
 
 ## ⚙️ Tech Stack
