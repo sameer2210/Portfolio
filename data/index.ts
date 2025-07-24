@@ -88,7 +88,7 @@ export const projects = [
     id: 2,
     title: "Eato",
     des: "Recipes Web App built with React 19, Tailwind CSS 4, Vite, React Hook Form, Context API, React Router v7, Framer Motion, Toastify, and NanoID. explore your favorite recipes with an interface that’s as smooth as your go-to recipe ,  ",
-    img: "eato.png",
+    img: "/eato.png",
     iconLists: [
       "/re.svg",
       "/js.svg",
@@ -103,7 +103,7 @@ export const projects = [
     id: 3,
     title: "DriveLink",
     des: "Google Drive Clone using the MERN Stack! web app built using the MERN stack (MongoDB, Express.js, EJS, Node.js).",
-    img: "driveLink.png",
+    img: "/driveLink.png",
     iconLists: [
       "/html.svg",
       "/css.svg",
@@ -130,31 +130,31 @@ export const testimonials = [
   {
     quote:
       "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
+    name: "sam ",
     title: "Director of AlphaStream Technologies",
   },
   {
     quote:
       "Collaborating with  was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
+    name: "aayush ",
     title: "Director of AlphaStream Technologies",
   },
   {
     quote:
       "Collaborating with  was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
+    name: " Johnson",
     title: "Director of AlphaStream Technologies",
   },
   {
     quote:
       "Collaborating with  was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
+    name: "Mca",
     title: "Director of AlphaStream Technologies",
   },
   {
     quote:
       "Collaborating with  was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
+    name: "Paul",
     title: "Director of AlphaStream Technologies",
   },
 ];

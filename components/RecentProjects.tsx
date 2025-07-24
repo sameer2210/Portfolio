@@ -1,9 +1,9 @@
 "use client";
-import { projects } from "@/data";
 import React from "react";
+import Image from "next/image";
+import { projects } from "@/data";
 import { PinContainer } from "./ui/PinContainer";
 import { FaLocationArrow } from "react-icons/fa";
-
 
 const RecentProjects = () => {
   return (
@@ -18,15 +18,20 @@ const RecentProjects = () => {
             key={id}
             className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
           >
-            <PinContainer title={link} href={link} >
+            <PinContainer title={link} href={link}>
               <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10">
                 <div
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
                 >
-                  <img src="/bg.png" alt="bgimg" />
+                  <Image src="/bg.png" alt="bgimg" layout="fill" />
                 </div>
-                <img src={img} alt="cover" className="z-10 absolute bottom-0" />
+                <Image
+                  src={img}
+                  alt="cover"
+                  className="z-10 absolute bottom-0"
+                  layout="fill"
+                />
               </div>
 
               <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
@@ -53,7 +58,12 @@ const RecentProjects = () => {
                         transform: `translateX(-${5 * index + 2}px)`,
                       }}
                     >
-                      <img src={icon} alt="icon5" className="p-2" />
+                      <Image
+                        src={icon}
+                        alt="icon5"
+                        className="p-2"
+                        layout="fill"
+                      />
                     </div>
                   ))}
                 </div>
