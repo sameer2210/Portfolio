@@ -5,8 +5,7 @@ export const navItems = [
     link: "https://drive.google.com/file/d/19M3YRvxHXKIh8WP0DtGyojtQruIzcy15/view?usp=drive_link",
   },
   { name: "Projects", link: "#projects" },
-  //{ name: "Testimonials", link: "#testimonials" },
-
+  // { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -122,7 +121,7 @@ export const projects = [
     title: "CoDevAI",
     des: "A web application that allows users AI-Powered Coding Platform with Real-Time Collaboration Chat and AI Code Review enabling them to automate tasks and enhance productivity.",
     img: "/digi.png",
-    iconLists: ["/science.png", "/tail.svg", "/supabase.png", "/mui.svg"],
+    iconLists: ["/science.png", "/tail.svg", "/supabase.png"],
     link: "https://ai-chi-tawny.vercel.app/",
   },
 ];
