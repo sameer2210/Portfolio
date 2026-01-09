@@ -78,11 +78,11 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: 'Whitesoft',
-    des: 'Whitesoft is an ERP-CRM app build for Haritha Agritech Customized for their requirements',
-    img: '/haritha.png',
+    title: 'CodeX',
+    des: 'A web application that allows users AI-Powered Coding Platform with Real-Time Collaboration Chat and AI Code Review enabling them to automate tasks and enhance productivity.',
+    img: '/digi.png',
     iconLists: ['/science.png', '/tail.svg', '/supabase.png'],
-    link: 'https://github.com/sameer2210?tab=repositories',
+    link: 'https://code-x-hazel.vercel.app/',
   },
   {
     id: 2,
@@ -111,11 +111,11 @@ export const projects = [
 
   {
     id: 4,
-    title: 'CodeX',
-    des: 'A web application that allows users AI-Powered Coding Platform with Real-Time Collaboration Chat and AI Code Review enabling them to automate tasks and enhance productivity.',
-    img: '/digi.png',
+    title: 'Whitesoft',
+    des: 'Whitesoft is an ERP-CRM app build for Haritha Agritech Customized for their requirements',
+    img: '/haritha.png',
     iconLists: ['/science.png', '/tail.svg', '/supabase.png'],
-    link: 'https://code-x-hazel.vercel.app/',
+    link: 'https://github.com/sameer2210?tab=repositories',
   },
 ];
 
