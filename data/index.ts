@@ -186,32 +186,33 @@ export const companies = [
 ];
 
 export const workExperience = [
-  // {
-  //   id: 1,
-  //   title: "Linux Clipboard App",
-  //   desc: "Made a linux App that can be used to copy multiple codes at once and paste according to the sequence",
-  //   className: "md:col-span-2",
-  //   thumbnail: "/exp1.svg",
-  // },
+  {
+    id: 1,
+    title: 'MERN & React Native Developer — Optico Solutions Pvt. Ltd.',
+    desc: 'Worked as a Full Stack Developer building production-grade web and mobile applications using React.js, React Native, Node.js, Express.js, and MongoDB. Developed scalable REST APIs, implemented JWT-based authentication, optimized database queries, and built responsive dashboards. Contributed to real-time features, performance optimization, and deployment workflows, following clean architecture and industry best practices.',
+    className: 'md:col-span-2',
+    thumbnail: '/exp1.svg',
+  },
   {
     id: 2,
-    title: "React Library",
-    desc: "Developed a React library called react-infinite-scroller which is used to create horizontal logo animations , its still in improvement stage ",
-    thumbnail: "/exp2.svg",
-  },
-  {
-    id: 3,
-    title: "Freelance Project",
-    desc: "Developed a AR based web application for a client to present his machines AR gltf files to get funding for his big project , have signed a NDA",
-    className: "md:col-span-2",
-    thumbnail: "/exp3.svg",
+    title: 'MERN Stack Trainee — Sheryians Pvt. Ltd.',
+    desc: 'Completed intensive hands-on training in MERN stack development, working on multiple real-world projects. Built full-stack applications with role-based authentication, CRUD modules, RESTful APIs, and responsive UIs using React, Node.js, Express, and MongoDB. Gained strong experience in Git workflows, debugging, code structuring, and production deployment.',
+    className: 'md:col-span-2',
+    thumbnail: '/exp2.svg',
   },
   // {
+  //   id: 3,
+  //   title: 'Freelance Project',
+  //   desc: 'Developed a AR based web application for a client to present his machines AR gltf files to get funding for his big project , have signed a NDA',
+  //   className: 'md:col-span-2',
+  //   thumbnail: '/exp3.svg',
+  // },
+  // {
   //   id: 4,
-  //   title: "Team Lead",
-  //   desc: "Led the team of developers at whitebranding for multiple projects for a period of 6 months",
-  //   className: "md:col-span-2",
-  //   thumbnail: "/exp4.svg",
+  //   title: 'Team Lead',
+  //   desc: 'Led the team of developers at whitebranding for multiple projects for a period of 6 months',
+  //   className: 'md:col-span-2',
+  //   thumbnail: '/exp4.svg',
   // },
 ];
 
