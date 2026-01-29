@@ -1,15 +1,14 @@
-"use client";
-import React from "react";
-import dynamic from "next/dynamic";
-import { gridItems } from "@/data";
+'use client';
+import React from 'react';
+import dynamic from 'next/dynamic';
+import { gridItems } from '@/data';
 
 // Dynamically import BentoGrid and BentoGridItem with SSR disabled
-const BentoGrid = dynamic(
-  () => import("@/components/ui/BentoGrid").then((mod) => mod.BentoGrid),
-  { ssr: false }
-);
+const BentoGrid = dynamic(() => import('@/components/ui/BentoGrid').then(mod => mod.BentoGrid), {
+  ssr: false,
+});
 const BentoGridItem = dynamic(
-  () => import("@/components/ui/BentoGrid").then((mod) => mod.BentoGridItem),
+  () => import('@/components/ui/BentoGrid').then(mod => mod.BentoGridItem),
   { ssr: false }
 );
 
@@ -24,6 +23,7 @@ const Grid = () => {
               title,
               titleClassName,
               description,
+              link,
               className,
               img,
               imgClassName,
@@ -37,6 +37,7 @@ const Grid = () => {
               title={title}
               titleClassName={titleClassName}
               description={description}
+              link={link}
               className={className}
               img={img}
               imgClassName={imgClassName}
