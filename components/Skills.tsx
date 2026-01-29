@@ -1,28 +1,24 @@
-"use client";
-import { IconCloud } from "@/components/ui/IconCloud";
+'use client';
+import { IconCloud } from '@/components/ui/IconCloud';
 
-// Updated slugs with working alternatives
 const slugs = [
-  "typescript",
-  "javascript",
-  "openjdk", //  Changed from "java" to "openjdk"
-  "html5",
-  "css3",
-  "react",
-  "nodedotjs",
-  "express",
-  "nextdotjs",
-  "mongodb",
-  "vercel",
-  "docker",
-  "git",
-  "github",
-  "figma",
-  "tailwindcss",
-  //  Optional: Add more reliable icons
-  // "python",
-  // "postgresql",
-  "redux",
+  'typescript',
+  'javascript',
+  'openjdk',
+  'html5',
+  'css3',
+  'react',
+  'nodedotjs',
+  'express',
+  'nextdotjs',
+  'mongodb',
+  'vercel',
+  'docker',
+  'git',
+  'github',
+  'figma',
+  'tailwindcss',
+  'redux',
 ];
 
 function Skills() {
