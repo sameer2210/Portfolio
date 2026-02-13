@@ -38,9 +38,6 @@ This portfolio is designed to highlight my technical expertise, creative approac
 - Responsive design
 - Real project showcases
 
-## 🌐 Demo
-
-**Live Site:** [https://your-portfolio-link.com](https://your-portfolio-link.com) <!-- Replace with your actual deployed link -->
 
 ---
 
@@ -138,7 +135,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - **GitHub:** [sameer2210](https://github.com/sameer2210)
 - **Twitter (X):** [@Sameer2210\_](https://x.com/Sameer2210_)
 - **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/sameer-khan2210/)
-- **Email:** sameerkhan@gmail.com 
+- **Email:** sameerkhan@gmail.com
 
 ---
 

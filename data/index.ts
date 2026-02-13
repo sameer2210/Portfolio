@@ -2,7 +2,7 @@ export const navItems = [
   { name: 'About', link: '#about' },
   {
     name: 'Resume',
-    link: 'https://drive.google.com/file/d/1P0a--72TReVt0PPOjCMqbO3A2ZG4xyNT/view?usp=sharing',
+    link: 'https://drive.google.com/file/d/1Beb6j5fyts7JHcpdDBB-7yRjkFdKhcgY/view?usp=sharing',
   },
   { name: 'Projects', link: '#projects' },
   { name: 'Testimonials', link: '#testimonials' },
@@ -14,7 +14,7 @@ export const gridItems = [
     id: 1,
     title: 'My Career Snapshot',
     description: 'From concept to production — skills, experience, and impact.',
-    link: 'https://drive.google.com/file/d/1P0a--72TReVt0PPOjCMqbO3A2ZG4xyNT/view?usp=sharing',
+    link: 'https://drive.google.com/file/d/1Beb6j5fyts7JHcpdDBB-7yRjkFdKhcgY/view?usp=sharing',
     className: 'lg:col-span-2 md:col-span-3 md:row-span-2',
     imgClassName: '',
     titleClassName: 'justify-end',
@@ -34,7 +34,6 @@ export const gridItems = [
   },
 ];
 
-
 export const testimonials = [
   {
     quote:
@@ -53,6 +52,12 @@ export const testimonials = [
       'Sameer is sincere, hardworking, and dependable. He approaches every task with dedication and a strong desire to improve. His ability to collaborate with the team and adapt to challenges makes him a trustworthy professional.',
     name: 'Anshu Panday',
     title: 'Team Lead, Sheryians Pvt. Ltd.',
+  },
+  {
+    quote:
+      'Sameer demonstrates strong coding expertise and sharp problem-solving abilities. He approaches technical challenges with a logical, analytical mindset and consistently delivers efficient, scalable solutions. His capability to debug complex issues and write clean, maintainable code makes him a reliable and technically proficient professional.',
+    name: 'Ankesh Barahadiya - Ankeshbarahdiya05112002@gmail.com',
+    title: 'Co-Founder, Aimvirtue Pvt. Ltd.',
   },
 ];
 
@@ -92,7 +97,7 @@ export const projects = [
       '/icons/git.svg',
       '/icons/github.svg',
     ],
-    link: 'https://code-x-hazel.vercel.app/',
+    link: 'https://codex-psi-murex.vercel.app/',
   },
   {
     id: 2,
@@ -211,6 +216,12 @@ export const socialMedia = [
     id: 3,
     img: '/icons/link.svg',
     href: 'https://www.linkedin.com/in/sameer-khan2210/',
+    name: 'LinkedIn',
+  },
+  {
+    id: 3,
+    img: '/icons/insta.svg',
+    href: 'https://www.instagram.com/isameer_22',
     name: 'LinkedIn',
   },
 ];
