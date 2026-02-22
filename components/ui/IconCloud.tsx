@@ -177,7 +177,7 @@ const cloudProps: Omit<ICloud, 'children'> = {
       justifyContent: 'center',
       alignItems: 'center',
       width: '100%',
-      height: '500px',
+      height: 'clamp(260px, 60vh, 500px)',
       paddingTop: 40,
     },
   },
@@ -245,11 +245,6 @@ export function IconCloud({ iconSlugs }: DynamicCloudProps) {
       try {
         setLoading(true);
         setError(null);
-
-        const validSlugs = iconSlugs.filter(slug => {
-          const problematicSlugs = ['java'];
-          return !problematicSlugs.includes(slug);
-        });
 
         const updatedSlugs = iconSlugs.map(slug => {
           if (slug === 'java') return 'openjdk';

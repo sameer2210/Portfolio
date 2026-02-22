@@ -219,9 +219,9 @@ export const socialMedia = [
     name: 'LinkedIn',
   },
   {
-    id: 3,
+    id: 4,
     img: '/icons/insta.svg',
     href: 'https://www.instagram.com/isameer_22',
-    name: 'LinkedIn',
+    name: 'Instagram',
   },
 ];

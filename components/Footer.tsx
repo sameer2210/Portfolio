@@ -91,9 +91,9 @@ const Footer = () => {
     <footer className="relative w-full mb-[100px] md:mb-5 pb-10" id="contact">
       {/* Spotlights */}
       <div>
-        <Spotlight className="h-screen" fill="grey" />
-        <Spotlight className="left-full h-[80vh]" fill="violet" />
-        <Spotlight className="left-80 h-[80vh] w-[50vw]" fill="#87CEEB" />
+        <Spotlight className="h-[100svh]" fill="grey" />
+        <Spotlight className="left-full h-[80svh]" fill="violet" />
+        <Spotlight className="left-80 h-[80svh] w-[50vw]" fill="#87CEEB" />
       </div>
 
       {/* Background Grid */}
@@ -103,6 +103,7 @@ const Footer = () => {
           alt="footer background grid"
           fill
           className="w-full h-full opacity-100 object-cover"
+          sizes="100vw"
         />
       </div>
 

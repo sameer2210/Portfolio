@@ -3,8 +3,13 @@
 // import { companies, testimonials } from "@/data";
 import { testimonials } from '@/data';
 import { InfiniteMovingCards } from './ui/InfiniteMovingCards';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 const Clients = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(containerRef, { margin: '200px', once: true });
+
   return (
     <section id="testimonials" className="py-20">
       <h1 className="heading">
@@ -13,8 +18,15 @@ const Clients = () => {
       </h1>
 
       <div className="flex flex-col items-center max-lg:mt-10">
-        <div className="h-[50vh] md:h-[30rem] rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden">
-          <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
+        <div
+          ref={containerRef}
+          className="h-[50vh] md:h-[30rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden"
+        >
+          {isInView ? (
+            <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
+          ) : (
+            <div className="text-sm text-white-100">Loading testimonials...</div>
+          )}
         </div>
 
         {/* <div className="flex flex-wrap items-center justify-center gap-4 md:gap-16 max-lg:mt-10">

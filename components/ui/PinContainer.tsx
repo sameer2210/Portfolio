@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 export const PinContainer = ({
   children,
@@ -39,7 +38,8 @@ export const PinContainer = ({
       //href={href || "/"}
       onClick={(event) => {
         event.preventDefault();
-        window.open("" + href, "_blank");
+        if (!href) return;
+        window.open(href, "_blank", "noopener,noreferrer");
       }}
     >
       <div

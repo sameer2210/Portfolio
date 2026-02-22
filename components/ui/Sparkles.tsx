@@ -5,7 +5,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import type { Container, SingleOrMultiple } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { cn } from "@/lib/utils";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, useReducedMotion } from "framer-motion";
 
 type ParticlesProps = {
   id?: string;
@@ -38,6 +38,11 @@ export const SparklesCore = (props: ParticlesProps) => {
     });
   }, []);
   const controls = useAnimation();
+  const prefersReducedMotion = useReducedMotion();
+  const resolvedDensity = prefersReducedMotion
+    ? Math.min(particleDensity ?? 120, 50)
+    : particleDensity ?? 120;
+  const resolvedFps = prefersReducedMotion ? 30 : 60;
 
   const particlesLoaded = async (container?: Container) => {
     if (container) {
@@ -69,11 +74,11 @@ export const SparklesCore = (props: ParticlesProps) => {
               zIndex: 1,
             },
 
-            fpsLimit: 120,
+            fpsLimit: resolvedFps,
             interactivity: {
               events: {
                 onClick: {
-                  enable: true,
+                  enable: !prefersReducedMotion,
                   mode: "push",
                 },
                 onHover: {
@@ -230,7 +235,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                   mode: "delete",
                   value: 0,
                 },
-                value: particleDensity || 120,
+                value: resolvedDensity,
               },
               opacity: {
                 value: {
