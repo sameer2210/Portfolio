@@ -140,6 +140,9 @@ export const projects = [
       '/icons/github.svg',
     ],
     link: 'https://elite-jade.vercel.app/',
+
+
+    
   },
   {
     id: 4,
