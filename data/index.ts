@@ -140,9 +140,6 @@ export const projects = [
       '/icons/github.svg',
     ],
     link: 'https://elite-jade.vercel.app/',
-
-
-    
   },
   {
     id: 4,
@@ -183,11 +180,22 @@ export const projects = [
 
   {
     id: 6,
-    title: 'Whitesoft',
-    des: 'Whitesoft is an ERP-CRM app build for Haritha Agritech Customized for their requirements',
-    img: '/project/haritha.png',
-    iconLists: ['/science.png', '/tail.svg', '/supabase.png'],
-    link: 'https://github.com/sameer2210?tab=repositories',
+    title: 'SpandaVidya',
+    des: 'SpandaVidyaAi is a modern AI-powered chat application that responds like an Ayurvedic doctor (Vaidya). It blends classical Ayurvedic knowledge with Google Gemini AI to provide natural.',
+    img: '/project/SpandaVidya.png',
+    iconLists: [
+      '/icons/html.svg',
+      '/icons/css.svg',
+      '/icons/js.svg',
+      '/icons/tail.svg',
+      '/icons/node.svg',
+      '/icons/express.svg',
+      '/icons/mongo.svg',
+      '/icons/cloudinary.svg',
+      '/icons/git.svg',
+      '/icons/github.svg',
+    ],
+    link: 'https://spandavidyaai.com/',
   },
 ];
 
