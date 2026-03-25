@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./image.png" width="200" alt="Portfolio Banner" />
+  <img src="/public/Banner.png" width="200" alt="Portfolio Banner" />
 </p>
 
 #  Sameer’s Developer Portfolio
