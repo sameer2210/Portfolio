@@ -109,10 +109,10 @@ const Footer = () => {
 
       {/* Contact CTA */}
       <div className="flex flex-col items-center text-center px-4">
-        <h1 className="heading lg:max-w-[45vw]">
+        <h2 className="heading lg:max-w-[45vw]">
           Ready to take <span className="text-purple">your</span> digital
           presence to the next level?
-        </h1>
+        </h2>
         <p className="text-white-200 md:mt-10 my-5">
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
@@ -140,7 +140,8 @@ const Footer = () => {
               key={item.id}
               href={item.href}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="me noopener noreferrer"
+              aria-label={`Visit Sameer Khan on ${item.name}`}
               title={item.name}
               className="hover:scale-110 transition-transform"
             >

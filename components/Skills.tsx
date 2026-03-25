@@ -37,9 +37,9 @@ function Skills() {
 
   return (
     <div ref={containerRef} className="my-10 py-10">
-      <h1 className="heading">
+      <h2 className="heading">
         Skills &amp; <span className="text-purple">Technologies</span>
-      </h1>
+      </h2>
       {isInView ? (
         <IconCloud iconSlugs={slugs} />
       ) : (

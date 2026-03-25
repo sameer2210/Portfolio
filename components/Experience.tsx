@@ -6,9 +6,9 @@ import Image from "next/image";
 const Experience = () => {
   return (
     <div className="py-20 w-full">
-      <h1 className="heading">
+      <h2 className="heading">
         My work<span className="text-purple"> experience</span>
-      </h1>
+      </h2>
 
       <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
         {workExperience.map((card) => (
@@ -40,9 +40,9 @@ const Experience = () => {
               </div>
 
               <div className="lg:ms-5 flex-1">
-                <h1 className="text-start text-xl md:text-2xl font-bold">
+                <h3 className="text-start text-xl md:text-2xl font-bold">
                   {card.title}
-                </h1>
+                </h3>
                 <p className="text-start text-white-100 mt-3 font-semibold">
                   {card.desc}
                 </p>

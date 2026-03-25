@@ -83,7 +83,7 @@ export const BentoGridItem = ({
         {img && (
           <Image
             src={img}
-            alt={'project screenshot'}
+            alt={typeof title === 'string' ? `${title} visual` : 'Portfolio visual'}
             className={cn(imgClassName, 'object-center')}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 70vw, 50vw"
@@ -94,7 +94,7 @@ export const BentoGridItem = ({
         {spareImg && (
           <Image
             src={spareImg}
-            alt={'spare image'}
+            alt=""
             className="object-cover object-center w-full h-full"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 70vw, 50vw"

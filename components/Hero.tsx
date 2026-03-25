@@ -49,16 +49,21 @@ const Hero = () => {
 
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-        
-          <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Sameer
-          </h2>
-          <TypewriterEffect
-            className="text-center md:text-5xl lg:text-6xl my-5"
-            words={words}
-          />
+          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
+            Full Stack Web Developer Portfolio
+          </p>
+          <h1 className="text-center text-4xl md:text-6xl lg:text-7xl font-bold mt-4">
+            Sameer Khan
+          </h1>
+          <div aria-hidden="true">
+            <TypewriterEffect
+              className="text-center md:text-5xl lg:text-6xl my-5"
+              words={words}
+            />
+          </div>
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi, I&apos;m Sameer khan, a Web Developer and Open Source Enthusiast.
+            Full stack web developer in Bhopal, building scalable MERN and
+            Next.js applications.
           </p>
 
           <a href="#projects" className="cursor-pointer">

@@ -9,7 +9,7 @@ Welcome to my interactive portfolio! Built with Next.js, Three.js, Framer Motion
 
 ## 🌐 Demo
 
-**Live Site:** [https://your-portfolio-link.com](https://portfolio-coral-two-16.vercel.app/)
+**Live Site:** [https://your-portfolio-link.com]()
 ---
 
 ## 📋 Table of Contents
@@ -135,7 +135,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - **GitHub:** [sameer2210](https://github.com/sameer2210)
 - **Twitter (X):** [@Sameer2210\_](https://x.com/Sameer2210_)
 - **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/sameer-khan2210/)
-- **Email:** sameerkhan@gmail.com
+- **Email:** sameerkhan27560@gmail.com
 
 ---
 

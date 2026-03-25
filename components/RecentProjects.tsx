@@ -8,9 +8,9 @@ import { FaLocationArrow } from "react-icons/fa";
 const RecentProjects = () => {
   return (
     <div className="py-10" id="projects">
-      <h1 className="heading">
+      <h2 className="heading">
         A small selection of <span className="text-purple">recent projects</span>
-      </h1>
+      </h2>
       <div className="flex flex-wrap items-center justify-center p-4 gap-x-20 gap-y-16 sm:gap-y-8">
         {projects.map(({ id, title, des, img, iconLists, link }) => (
           <div
@@ -25,7 +25,7 @@ const RecentProjects = () => {
                 >
                   <Image
                     src="/bg.png"
-                    alt="background texture"
+                    alt=""
                     fill
                     sizes="(max-width: 640px) 80vw, 570px"
                     className="object-cover"
@@ -33,14 +33,14 @@ const RecentProjects = () => {
                 </div>
                 <Image
                   src={img}
-                  alt="cover"
+                  alt={`${title} project preview`}
                   fill
                   sizes="(max-width: 640px) 80vw, 570px"
                   className="z-10 absolute bottom-0 object-contain"
                 />
               </div>
 
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">{title}</h1>
+              <h3 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">{title}</h3>
 
               <p
                 className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2"
@@ -61,7 +61,7 @@ const RecentProjects = () => {
                     >
                       <Image
                         src={icon}
-                        alt="icon5"
+                        alt=""
                         fill
                         sizes="(max-width: 768px) 32px, 40px"
                         className="p-2 object-contain"
