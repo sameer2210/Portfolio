@@ -9,7 +9,7 @@ Welcome to my interactive portfolio! Built with Next.js, Three.js, Framer Motion
 
 ## 🌐 Demo
 
-**Live Site:** [https://your-portfolio-link.com]()
+**Live Site:** [https://sameerkhan-io.vercel.app/]()
 ---
 
 ## 📋 Table of Contents

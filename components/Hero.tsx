@@ -1,8 +1,19 @@
 "use client";
 import { FaLocationArrow } from "react-icons/fa6";
+import dynamic from "next/dynamic";
 import MagicButton from "./ui/MagicButton";
 import { Spotlight } from "./ui/Spotlight";
-import { TypewriterEffect } from "./ui/TypewriterEffect";
+
+const TypewriterEffect = dynamic(
+  () => import("./ui/TypewriterEffect").then((mod) => mod.TypewriterEffect),
+  {
+    loading: () => (
+      <p className="text-center md:text-5xl lg:text-6xl my-5 font-bold text-white">
+        I Build Awesome Web Applications
+      </p>
+    ),
+  }
+);
 
 const Hero = () => {
   const words = [

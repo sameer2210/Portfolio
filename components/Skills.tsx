@@ -1,7 +1,19 @@
 'use client';
-import { IconCloud } from '@/components/ui/IconCloud';
 import { useInView } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import { useRef } from 'react';
+
+const IconCloud = dynamic(
+  () => import('@/components/ui/IconCloud').then(mod => mod.IconCloud),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex justify-center items-center w-full h-[320px] md:h-[420px]">
+        <div className="animate-spin rounded-full h-12 w-12 border-2 border-purple border-t-transparent"></div>
+      </div>
+    ),
+  }
+);
 
 const slugs = [
   'typescript',

@@ -2,9 +2,17 @@
 
 // import { companies, testimonials } from "@/data";
 import { testimonials } from '@/data';
-import { InfiniteMovingCards } from './ui/InfiniteMovingCards';
 import { useInView } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import { useRef } from 'react';
+
+const InfiniteMovingCards = dynamic(
+  () => import('./ui/InfiniteMovingCards').then(mod => mod.InfiniteMovingCards),
+  {
+    ssr: false,
+    loading: () => <div className="text-sm text-white-100">Loading testimonials...</div>,
+  }
+);
 
 const Clients = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
