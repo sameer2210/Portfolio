@@ -2,7 +2,7 @@ export const navItems = [
   { name: 'About', link: '#about' },
   {
     name: 'Resume',
-    link: 'https://drive.google.com/file/d/1Beb6j5fyts7JHcpdDBB-7yRjkFdKhcgY/view?usp=sharing',
+    link: 'https://drive.google.com/file/d/1VjbpFz5slgEU4_SG3ER7QmnddwVvQua-/view?usp=sharing',
   },
   { name: 'Projects', link: '#projects' },
   { name: 'Testimonials', link: '#testimonials' },
@@ -14,7 +14,7 @@ export const gridItems = [
     id: 1,
     title: 'My Career Snapshot',
     description: 'From concept to production — skills, experience, and impact.',
-    link: 'https://drive.google.com/file/d/1Beb6j5fyts7JHcpdDBB-7yRjkFdKhcgY/view?usp=sharing',
+    link: 'https://drive.google.com/file/d/1VjbpFz5slgEU4_SG3ER7QmnddwVvQua-/view?usp=sharing',
     className: 'lg:col-span-2 md:col-span-3 md:row-span-2',
     imgClassName: '',
     titleClassName: 'justify-end',
@@ -81,7 +81,7 @@ export const projects = [
   {
     id: 1,
     title: 'CodeX',
-    des: 'A Real-time multi-user collaborative IDE with live code editing and AI code review using LLMs, chat, audio calls, video calls using Socket.IO, WebSockets, and WebRTC. Designed a team dashboard and JWT-based authentication (RBAC) enabling shared workspace visibility for collaborative development.',
+    des: 'Real-time collaborative IDE with live editing, AI code review, chat, and audio/video calling. Built for teams with secure RBAC auth and shared workspace control.',
     img: '/project/codex.png',
     iconLists: [
       '/icons/js.svg',
@@ -102,7 +102,7 @@ export const projects = [
   {
     id: 2,
     title: 'FileHive',
-    des: ' Built AES-256 encrypted cloud storage with nested folder system and Redis caching achieving ¡100ms response time and 99.9% uptime with CI/CD deployments.',
+    des: 'AES-256 encrypted cloud storage with nested folders and blazing-fast Redis-powered performance. Delivered sub-100ms responses with reliable CI/CD and 99.9% uptime.',
     img: '/project/filehive.png',
     iconLists: [
       '/icons/js.svg',
@@ -124,7 +124,7 @@ export const projects = [
   {
     id: 3,
     title: 'ÉLITE',
-    des: 'ÉLITE is a full-stack e-commerce platform built with React and Vite on the frontend, and powered by Bun, Express, and MongoDB on the backend.It features product browsing with filters and sorting, cart management, secure authentication using JSON Web Token, and admin-controlled product CRUD operations.Designed with a layered architecture and Redux-based state management, it is structured for scalability, maintainability, and production-grade deployment.',
+    des: 'Modern full-stack e-commerce platform with smart filters, cart flow, and secure JWT authentication. Includes admin product management and scalable Redux-driven architecture for production.',
     img: '/project/Elite.png',
     iconLists: [
       '/icons/js.svg',
@@ -143,8 +143,28 @@ export const projects = [
   },
   {
     id: 4,
+    title: 'Aviyukt NGO',
+    des: 'Official NGO platform with Google OAuth, secure JWT sessions, and seamless donation or membership payments. Includes Razorpay verification, PDF receipts, Aadhaar history lookup, and service showcase pages.',
+    img: '/project/AviyuktNgo.png',
+    iconLists: [
+      '/icons/js.svg',
+      '/icons/react.svg',
+      '/icons/vite.svg',
+      '/icons/tail.svg',
+      '/icons/node.svg',
+      '/icons/express.svg',
+      '/icons/mongo.svg',
+      '/icons/postman.svg',
+      '/icons/git.svg',
+      '/icons/github.svg',
+      '/icons/Razorpay.svg',
+    ],
+    link: 'https://aviyuktngo.org/',
+  },
+  {
+    id: 5,
     title: 'Eato',
-    des: 'Recipes Web App built with React 19, Tailwind CSS 4, Vite, React Hook Form, Context API, React Router v7, Framer Motion, Toastify, and NanoID. explore your favorite recipes with an interface that’s as smooth as your go-to recipe ,  ',
+    des: 'Delightful recipe web app to discover, create, and manage your favorite dishes with ease. Crafted with modern React tooling and smooth animations for a clean user experience.',
     img: '/project/eato.png',
     iconLists: [
       '/icons/js.svg',
@@ -158,30 +178,11 @@ export const projects = [
     ],
     link: 'https://recipe-create-pied.vercel.app/',
   },
-  {
-    id: 5,
-    title: 'DriveLink',
-    des: 'Google Drive Clone using the MERN Stack! web app built using the MERN stack (MongoDB, Express.js, EJS, Node.js).',
-    img: '/project/driveLink.png',
-    iconLists: [
-      '/icons/html.svg',
-      '/icons/css.svg',
-      '/icons/js.svg',
-      '/icons/tail.svg',
-      '/icons/node.svg',
-      '/icons/express.svg',
-      '/icons/mongo.svg',
-      '/icons/cloudinary.svg',
-      '/icons/git.svg',
-      '/icons/github.svg',
-    ],
-    link: 'https://drive-ewdl.onrender.com/',
-  },
 
   {
     id: 6,
     title: 'SpandaVidya',
-    des: 'SpandaVidyaAi is a modern AI-powered chat application that responds like an Ayurvedic doctor (Vaidya). It blends classical Ayurvedic knowledge with Google Gemini AI to provide natural.',
+    des: 'AI-powered Ayurvedic assistant that delivers natural, Vaidya-style guidance in conversation format. Blends traditional wellness wisdom with modern LLM intelligence for practical help.',
     img: '/project/SpandaVidya.png',
     iconLists: [
       '/icons/html.svg',
@@ -196,6 +197,25 @@ export const projects = [
       '/icons/github.svg',
     ],
     link: 'https://spandavidyaai.com/',
+  },
+  {
+    id: 7,
+    title: 'DriveLink',
+    des: 'MERN-powered Google Drive clone for uploading, organizing, and managing files in the cloud. Built with a clean workflow-focused interface and scalable backend architecture.',
+    img: '/project/driveLink.png',
+    iconLists: [
+      '/icons/html.svg',
+      '/icons/css.svg',
+      '/icons/js.svg',
+      '/icons/tail.svg',
+      '/icons/node.svg',
+      '/icons/express.svg',
+      '/icons/mongo.svg',
+      '/icons/cloudinary.svg',
+      '/icons/git.svg',
+      '/icons/github.svg',
+    ],
+    link: 'https://drive-ewdl.onrender.com/',
   },
 ];
 
@@ -254,5 +274,11 @@ export const socialMedia = [
     img: '/icons/insta.svg',
     href: 'https://www.instagram.com/isameer_22',
     name: 'Instagram',
+  },
+  {
+    id: 5,
+    img: '/icons/youtube.svg',
+    href: 'https://www.youtube.com/channel/UCkJWIW5koQOLwPgdE25p6jg',
+    name: 'YouTube',
   },
 ];
