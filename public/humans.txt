@@ -1,0 +1,12 @@
+/* TEAM */
+  Developer: Sameer Khan
+  Role: Full Stack Developer & Software Engineer
+  Location: Bhopal, Madhya Pradesh, India
+  Contact: sameerkhanorigin@gmail.com
+  GitHub: https://github.com/sameer2210
+  LinkedIn: https://www.linkedin.com/in/sameer2210/
+
+/* SITE */
+  Standards: HTML5, CSS3, ES2024, TypeScript
+  Framework: Next.js 14 App Router, React 18, Tailwind CSS, Framer Motion
+  Backend: Node.js, NestJS, MongoDB, PostgreSQL, Redis, Docker, AWS

@@ -1,8 +1,9 @@
-import { FaLocationArrow } from "react-icons/fa6";
-import { Spotlight } from "./ui/Spotlight";
 import { socialMedia } from "@/data";
-import MagicButton from "./ui/MagicButton";
 import Image from "next/image";
+import Link from "next/link";
+import { FaLocationArrow } from "react-icons/fa6";
+import MagicButton from "./ui/MagicButton";
+import { Spotlight } from "./ui/Spotlight";
 
 const Footer = () => {
   return (
@@ -15,7 +16,7 @@ const Footer = () => {
       </div>
 
       {/* Background Grid */}
-      <div className="w-full absolute left-0 -bottom-72 min-h-96 z-[-1] ">
+      <div className="w-full absolute left-0 -bottom-72 min-h-96 z-[-1]">
         <Image
           src="/footer-grid.svg"
           alt="footer background grid"
@@ -28,16 +29,15 @@ const Footer = () => {
       {/* Contact CTA */}
       <div className="flex flex-col items-center text-center px-4">
         <h2 className="heading lg:max-w-[45vw]">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
+          Ready to take <span className="text-purple">your</span> software system to the next level?
         </h2>
-        <p className="text-white-200 md:mt-10 my-5">
-          Reach out to me today and let&apos;s discuss how I can help you
-          achieve your goals.
+        <p className="text-white/70 md:mt-6 my-5 max-w-xl text-base">
+          Whether you need a full-stack web application, high-performance REST API architecture, or mobile solution — let&apos;s build it together.
         </p>
         <a
-          href="mailto:sameerkhan27560@gmail.com"
-          aria-label="Send an email to Sameer"
+          href="mailto:sameerkhanorigin@gmail.com"
+          aria-label="Send an email to Sameer Khan"
+          className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple rounded-lg"
         >
           <MagicButton
             title="Let's get in touch"
@@ -49,11 +49,11 @@ const Footer = () => {
       </div>
 
       {/* Social Media Section */}
-      <div className="mt-10 flex flex-col items-center">
-        <h3 className="text-white-100 text-sm mb-2 uppercase tracking-wide">
-          Connect With Me
+      <div className="mt-16 flex flex-col items-center border-t border-white/10 pt-8">
+        <h3 className="text-white/50 text-xs mb-4 uppercase tracking-widest font-mono">
+          Connect With Sameer Khan
         </h3>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 mb-6">
           {socialMedia.map((item) => (
             <a
               key={item.id}
@@ -62,11 +62,11 @@ const Footer = () => {
               rel="me noopener noreferrer"
               aria-label={`Visit Sameer Khan on ${item.name}`}
               title={item.name}
-              className="hover:scale-110 transition-transform"
+              className="hover:scale-110 transition-transform p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple"
             >
               <Image
                 src={item.img}
-                alt={item.name}
+                alt={`${item.name} icon`}
                 width={24}
                 height={24}
                 className="w-6 h-6"
@@ -74,6 +74,20 @@ const Footer = () => {
             </a>
           ))}
         </div>
+
+        {/* Footer Navigation Links & Copyright */}
+        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/40 mb-4">
+          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <Link href="/#about" className="hover:text-white transition-colors">About</Link>
+          <Link href="/#projects" className="hover:text-white transition-colors">Projects</Link>
+          <Link href="/#faq" className="hover:text-white transition-colors">FAQ</Link>
+          <a href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</a>
+          <a href="/rss.xml" className="hover:text-white transition-colors">RSS Feed</a>
+        </div>
+
+        <p className="text-xs text-white/30 text-center font-mono">
+          &copy; {new Date().getFullYear()} Sameer Khan. All rights reserved. Full Stack Developer &amp; Software Engineer.
+        </p>
       </div>
     </footer>
   );

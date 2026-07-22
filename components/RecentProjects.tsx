@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { projects } from "@/data";
 import { PinContainer } from "./ui/PinContainer";
-import { FaLocationArrow } from "react-icons/fa";
+import { FaLocationArrow, FaBookOpen } from "react-icons/fa";
 
 const getTechName = (path: string) => {
   const file = path.split("/").pop()?.split(".")[0] || "";
@@ -37,17 +38,17 @@ const getTechName = (path: string) => {
 
 const RecentProjects = () => {
   return (
-    <div className="py-10" id="projects">
+    <section className="py-10" id="projects">
       <h2 className="heading">
         A small selection of <span className="text-purple">recent projects</span>
       </h2>
       <div className="flex flex-wrap items-center justify-center p-4 gap-x-20 gap-y-16 sm:gap-y-8">
-        {projects.map(({ id, title, des, img, iconLists, link }) => (
-          <div
+        {projects.map(({ id, slug, title, des, img, iconLists, link }) => (
+          <article
             key={id}
             className="min-h-[28rem] sm:min-h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
           >
-            <PinContainer title={link} href={link}>
+            <PinContainer title={link} href={`/projects/${slug}`}>
               <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10">
                 <div
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
@@ -100,16 +101,30 @@ const RecentProjects = () => {
                   ))}
                 </div>
 
-                <div className="flex justify-center items-center">
-                  <p className="flex lg:text-xl md:text-xs text-sm ">Live</p>
-                  <FaLocationArrow className="ms-3" color="#CBACF9" />
+                <div className="flex items-center gap-4 z-20 relative">
+                  <Link
+                    href={`/projects/${slug}`}
+                    className="flex lg:text-base md:text-xs text-sm text-purple hover:underline items-center"
+                  >
+                    <FaBookOpen className="me-1.5" /> Details
+                  </Link>
+                  {link && (
+                    <a
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex lg:text-base md:text-xs text-sm text-white hover:text-purple items-center"
+                    >
+                      Live <FaLocationArrow className="ms-1.5" color="#CBACF9" />
+                    </a>
+                  )}
                 </div>
               </div>
             </PinContainer>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

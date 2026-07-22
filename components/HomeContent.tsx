@@ -14,10 +14,6 @@ import {
   TestimonialsSkeleton,
 } from "@/components/ui/Skeleton";
 
-// ─── Dynamic Imports (Code Splitting) ───────────────────────────────────────
-// Each section is a separate JS chunk — browser only downloads it when needed.
-// The `loading` prop feeds the Skeleton while the chunk is in-flight.
-
 const About = dynamic(() => import("@/components/About"), {
   loading: () => <AboutSkeleton />,
 });
@@ -28,7 +24,7 @@ const Experience = dynamic(() => import("@/components/Experience"), {
 
 const Skills = dynamic(() => import("@/components/Skills"), {
   loading: () => <SkillsSkeleton />,
-  ssr: false, // IconCloud uses browser APIs — skip server render
+  ssr: false,
 });
 
 const RecentProjects = dynamic(() => import("@/components/RecentProjects"), {
@@ -47,11 +43,14 @@ const Clients = dynamic(() => import("@/components/Client"), {
   loading: () => <TestimonialsSkeleton />,
 });
 
+const FaqSection = dynamic(() => import("@/components/FaqSection"), {
+  loading: () => <div className="py-20 h-64 animate-pulse" />,
+});
+
 const Footer = dynamic(() => import("@/components/Footer"), {
   loading: () => <div className="h-64" />,
 });
 
-// ─── Below-fold reveal animation ────────────────────────────────────────────
 function Reveal({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
@@ -65,20 +64,13 @@ function Reveal({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Page ────────────────────────────────────────────────────────────────────
 export default function HomeContent() {
   return (
     <div className="max-w-7xl w-full">
       <FloatingNav navItems={navItems} />
 
-      {/* Hero — no Suspense, no reveal: must paint immediately */}
       <Hero />
 
-      {/*
-        Suspense Boundaries: each section is wrapped so React can stream
-        them independently. If one section's JS is slow, the rest still
-        render — they don't block each other.
-      */}
       <Reveal>
         <Suspense fallback={<AboutSkeleton />}>
           <About />
@@ -118,6 +110,12 @@ export default function HomeContent() {
       <Reveal>
         <Suspense fallback={<TestimonialsSkeleton />}>
           <Clients />
+        </Suspense>
+      </Reveal>
+
+      <Reveal>
+        <Suspense fallback={<div className="py-20 h-64" />}>
+          <FaqSection />
         </Suspense>
       </Reveal>
 

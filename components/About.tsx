@@ -1,17 +1,28 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { IoCopyOutline, IoCheckmarkOutline } from "react-icons/io5";
+import { IoCheckmarkOutline, IoCopyOutline } from "react-icons/io5";
 
-const stack = ["React", "Next.js", "Node.js", "TypeScript", "Java", "MongoDB", "AWS", "Docker", "Redis", "React Native"];
+const stack = [
+  "React & Next.js",
+  "Node.js & NestJS",
+  "Java & TypeScript",
+  "MongoDB & PostgreSQL",
+  "Redis & Prisma",
+  "Docker & AWS",
+  "React Native",
+  "REST APIs & WebSockets",
+];
 
 export default function About() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard?.writeText("sameerkhan27560@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText("sameerkhanorigin@gmail.com");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
   };
 
   return (
@@ -24,7 +35,7 @@ export default function About() {
           transition={{ duration: 0.4 }}
           className="text-white/30 text-xs tracking-[0.25em] uppercase font-mono mb-4"
         >
-          /01 — about
+          /01 — ABOUT &amp; EXPERTISE
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
@@ -33,8 +44,8 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.05 }}
           className="text-3xl md:text-5xl font-bold text-white leading-tight"
         >
-          I make software <br className="hidden md:block" />
-          <span className="text-purple">that ships.</span>
+          Engineering software <br className="hidden md:block" />
+          <span className="text-purple">that scales in production.</span>
         </motion.h2>
       </div>
 
@@ -47,41 +58,42 @@ export default function About() {
           transition={{ duration: 0.55, delay: 0.1 }}
           className="flex flex-col gap-5"
         >
-          <p className="text-white/65 text-base md:text-lg leading-[1.8]">
-            I&apos;m Sameer Khan — a full-stack engineer based in Bhopal. I spend most of my time building web and mobile products that are fast, reliable, and actually pleasant to use.
+          <p className="text-white/70 text-base md:text-lg leading-[1.8]">
+            I&apos;m <strong className="text-white font-semibold">Sameer Khan</strong> — a Full Stack Developer &amp; Software Engineer based in Bhopal, India. I specialize in designing resilient backend architectures, high-performance web interfaces, and production-ready mobile applications.
           </p>
-          <p className="text-white/45 text-sm md:text-base leading-[1.8]">
-            Over the past year I&apos;ve worked across the stack — NestJS backends, React Native apps, cloud infra on AWS, payment integrations, and AI-powered features. I&apos;m comfortable owning a feature end-to-end, from database schema to the last pixel on screen.
+          <p className="text-white/50 text-sm md:text-base leading-[1.8]">
+            My core technical suite includes <strong className="text-white/80">React, Next.js, Node.js, NestJS, Java, TypeScript, MongoDB, PostgreSQL, Redis, Docker, and AWS</strong>. From architecting AI healthcare platforms and real-time WebRTC collaborative environments to building secure payment NGO platforms and e-commerce applications, I deliver high-quality, clean code solutions.
           </p>
-          <p className="text-white/45 text-sm md:text-base leading-[1.8]">
-            Currently open to new opportunities. If you&apos;re building something interesting, I&apos;d love to hear about it.
+          <p className="text-white/50 text-sm md:text-base leading-[1.8]">
+            Whether optimizing database aggregation pipelines to cut response latency by 35% or containerizing microservices for GitHub Actions CI/CD pipelines, I focus on system reliability, WCAG AA accessibility, and Core Web Vitals optimization.
           </p>
 
           <div className="flex items-center gap-4 pt-2">
             <button
               onClick={handleCopy}
-              className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors duration-200 group"
+              aria-label="Copy Sameer Khan's email address"
+              className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               {copied ? (
                 <>
-                  <IoCheckmarkOutline className="text-purple" />
-                  <span className="text-purple">Copied!</span>
+                  <IoCheckmarkOutline className="text-purple text-lg" />
+                  <span className="text-purple font-medium">Email Copied to Clipboard!</span>
                 </>
               ) : (
                 <>
-                  <IoCopyOutline className="group-hover:text-purple transition-colors duration-200" />
-                  sameerkhan27560@gmail.com
+                  <IoCopyOutline className="group-hover:text-purple transition-colors duration-200 text-lg" />
+                  <span>sameerkhanorigin@gmail.com</span>
                 </>
               )}
             </button>
-            <span className="w-px h-4 bg-white/10" />
+            <span className="w-px h-4 bg-white/10" aria-hidden="true" />
             <a
-              href="https://drive.google.com/file/d/1VjbpFz5slgEU4_SG3ER7QmnddwVvQua-/view?usp=sharing"
+              href="https://drive.google.com/drive/folders/1gFWOYpLKE1Ppj7HpTV_lKFuqpDn2O2wY?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-white/50 hover:text-white underline underline-offset-4 decoration-white/20 hover:decoration-white/60 transition-all duration-200"
+              className="text-sm text-white/60 hover:text-white underline underline-offset-4 decoration-white/20 hover:decoration-white/60 transition-all duration-200"
             >
-              View résumé ↗
+              View Full Resume ↗
             </a>
           </div>
         </motion.div>
@@ -94,10 +106,9 @@ export default function About() {
           transition={{ duration: 0.55, delay: 0.2 }}
           className="flex flex-col gap-10"
         >
-          {/* Stack */}
           <div>
-            <p className="text-white/25 text-xs tracking-[0.2em] uppercase font-mono mb-5">
-              Tech I work with
+            <p className="text-white/30 text-xs tracking-[0.2em] uppercase font-mono mb-5">
+              Primary Tech Stack &amp; Tools
             </p>
             <div className="grid grid-cols-2 gap-x-8 gap-y-3">
               {stack.map((tech, i) => (
@@ -107,30 +118,29 @@ export default function About() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.25 + i * 0.035, duration: 0.35 }}
-                  className="flex items-center gap-2.5 text-sm text-white/55 hover:text-white/90 transition-colors duration-200 cursor-default"
+                  className="flex items-center gap-2.5 text-sm text-white/70 hover:text-white transition-colors duration-200 cursor-default"
                 >
-                  <span className="w-1 h-1 rounded-full bg-purple/60 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple flex-shrink-0" />
                   {tech}
                 </motion.div>
               ))}
             </div>
           </div>
 
-          {/* Two number facts — horizontal, no card */}
-          <div className="flex gap-10 border-t border-white/[0.06] pt-8">
+          <div className="flex gap-8 border-t border-white/[0.08] pt-8">
             <div>
               <p className="text-4xl font-bold text-white tabular-nums">1+</p>
-              <p className="text-white/35 text-xs mt-1">years of experience</p>
+              <p className="text-white/40 text-xs mt-1 uppercase font-mono">Years Experience</p>
             </div>
-            <div className="w-px bg-white/[0.06]" />
+            <div className="w-px bg-white/[0.08]" aria-hidden="true" />
             <div>
               <p className="text-4xl font-bold text-white tabular-nums">15+</p>
-              <p className="text-white/35 text-xs mt-1">projects shipped</p>
+              <p className="text-white/40 text-xs mt-1 uppercase font-mono">Shipped Projects</p>
             </div>
-            <div className="w-px bg-white/[0.06]" />
+            <div className="w-px bg-white/[0.08]" aria-hidden="true" />
             <div>
-              <p className="text-4xl font-bold text-white tabular-nums">5+</p>
-              <p className="text-white/35 text-xs mt-1">clients served</p>
+              <p className="text-4xl font-bold text-white tabular-nums">100%</p>
+              <p className="text-white/40 text-xs mt-1 uppercase font-mono">Client Satisfaction</p>
             </div>
           </div>
         </motion.div>

@@ -6,7 +6,7 @@ const MagicButton = ({
   icon,
   position,
   handleClick,
-  otherClasses,
+  otherClasses = "",
   as: Component = "button",
 }: {
   title: string;
@@ -17,9 +17,9 @@ const MagicButton = ({
   as?: "button" | "span" | "div";
 }) => {
   return (
-    <div>
+    <div className="w-full sm:w-auto">
       <Component
-        className="relative inline-flex h-12 w-full overflow-hidden rounded-lg p-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 md:w-60 md:mt-10"
+        className="relative inline-flex h-12 w-full sm:w-auto min-w-[200px] overflow-hidden rounded-lg p-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-transform active:scale-95"
         onClick={handleClick}
         type={Component === "button" ? "button" : undefined}
       >
@@ -28,7 +28,7 @@ const MagicButton = ({
           className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-slate-950 px-7 text-sm font-medium gap-2 text-white backdrop-blur-3xl ${otherClasses}`}
         >
           {position === "left" && icon}
-          {title}
+          <span>{title}</span>
           {position === "right" && icon}
         </span>
       </Component>

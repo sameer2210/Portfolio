@@ -103,21 +103,6 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📁 Folder Structure
-
-```
-Portfolio/
-├── app/           # Next.js app directory (pages, layout, providers)
-├── components/    # Reusable React components (UI, sections)
-├── data/          # Static data (projects, testimonials, etc.)
-├── lib/           # Utility functions
-├── public/        # Static assets (images, svgs)
-├── styles/        # Global styles (if any)
-├── ...            # Config and setup files
-```
-
----
-
 ## 🤝 Contribution
 
 Contributions, issues, and feature requests are welcome! Feel free to fork the repo and submit a pull request.
@@ -134,8 +119,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 - **GitHub:** [sameer2210](https://github.com/sameer2210)
 - **Twitter (X):** [@Sameer2210\_](https://x.com/Sameer2210_)
-- **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/sameer-khan2210/)
-- **Email:** sameerkhan27560@gmail.com
+- **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/sameer2210/)
+- **Email:** sameerkhanorigin@gmail.com
 
 ---
 
