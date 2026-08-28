@@ -4,7 +4,19 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { FaArrowLeft, FaCheckCircle, FaCode, FaExternalLinkAlt, FaGithub, FaRocket, FaServer, FaShieldAlt } from 'react-icons/fa';
+import {
+  FaArrowLeft,
+  FaCheckCircle,
+  FaCode,
+  FaDatabase,
+  FaExternalLinkAlt,
+  FaGithub,
+  FaLightbulb,
+  FaLock,
+  FaRocket,
+  FaServer,
+  FaShieldAlt,
+} from 'react-icons/fa';
 
 const allProjects: ProjectDetail[] = [...projects, ...appProjects];
 
@@ -31,13 +43,24 @@ export async function generateMetadata({
   const project = getProject(params.id);
   if (!project) return {};
 
-  const title = `${project.title} | Software Case Study & Architecture | Sameer Khan`;
-  const description = `${project.title} — ${project.des} Engineered by Sameer Khan using ${project.techStackDetailed.slice(0, 4).join(', ')}.`;
+  const title = `${project.title} — Software Architecture Case Study | Sameer Khan`;
+  const description = `${project.title}: ${project.des} System architecture, database design, and performance engineering by Sameer Khan.`;
   const canonicalUrl = `${siteUrl}/projects/${project.slug}`;
 
   return {
     title,
     description,
+    keywords: [
+      project.title,
+      `${project.title} Case Study`,
+      `${project.title} Architecture`,
+      ...project.techStackDetailed,
+      'Sameer Khan Portfolio',
+      'Software Architecture',
+    ],
+    authors: [{ name: siteConfig.name, url: siteUrl }],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
     alternates: {
       canonical: canonicalUrl,
     },
@@ -51,7 +74,7 @@ export async function generateMetadata({
           url: `${siteUrl}${project.img}`,
           width: 1200,
           height: 630,
-          alt: `${project.title} project showcase`,
+          alt: `${project.title} project architecture showcase`,
         },
       ],
     },
@@ -59,6 +82,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
+      creator: siteConfig.twitterHandle,
       images: [`${siteUrl}${project.img}`],
     },
   };
@@ -74,12 +98,27 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
   const softwareAppJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
+    '@id': `${siteUrl}/projects/${project.slug}#software`,
     name: project.title,
     description: project.des,
     url: `${siteUrl}/projects/${project.slug}`,
     image: `${siteUrl}${project.img}`,
     applicationCategory: 'DeveloperApplication',
     operatingSystem: 'Web, iOS, Android',
+    author: {
+      '@type': 'Person',
+      name: siteConfig.name,
+      url: siteUrl,
+    },
+  };
+
+  const softwareSourceCodeJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    '@id': `${siteUrl}/projects/${project.slug}#code`,
+    name: project.title,
+    codeRepository: project.github || `${siteUrl}/projects/${project.slug}`,
+    programmingLanguage: project.techStackDetailed,
     author: {
       '@type': 'Person',
       name: siteConfig.name,
@@ -120,10 +159,14 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSourceCodeJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      {/* Back Button & Navigation */}
+      {/* Back Navigation */}
       <nav aria-label="Breadcrumb navigation" className="mb-8">
         <Link
           href="/#projects"
@@ -136,7 +179,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       {/* Hero Header */}
       <header className="mb-12">
         <div className="inline-block px-3 py-1 bg-purple/10 border border-purple/30 text-purple text-xs font-mono rounded-full mb-4">
-          {project.category} Architecture Case Study
+          {project.category} Engineering Deep-Dive
         </div>
         <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-4">
           {project.title}
@@ -154,7 +197,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-purple text-white rounded-lg font-medium hover:bg-purple/90 transition-all duration-200 shadow-lg shadow-purple/25"
             >
-              <FaExternalLinkAlt /> Launch Live Project
+              <FaExternalLinkAlt /> Launch Live Demo
             </a>
           )}
           {project.github && (
@@ -164,7 +207,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white border border-white/20 rounded-lg font-medium hover:bg-white/20 transition-all duration-200"
             >
-              <FaGithub /> View Source Code
+              <FaGithub /> View GitHub Repository
             </a>
           )}
         </div>
@@ -174,7 +217,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       <div className="relative w-full h-64 sm:h-[450px] rounded-2xl overflow-hidden border border-white/10 mb-16 bg-white/[0.02]">
         <Image
           src={project.img}
-          alt={`${project.title} detailed system screenshot`}
+          alt={`${project.title} system architecture showcase screenshot`}
           fill
           priority
           sizes="(max-width: 1200px) 100vw, 1200px"
@@ -184,7 +227,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
 
       {/* Performance Metrics Bar */}
       {project.performanceMetrics && project.performanceMetrics.length > 0 && (
-        <section className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 border-y border-white/10 py-8">
+        <section className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16 border-y border-white/10 py-8">
           {project.performanceMetrics.map((metric, i) => (
             <div key={i} className="text-center p-4 bg-white/[0.02] rounded-xl border border-white/5">
               <p className="text-3xl font-bold text-purple tabular-nums">{metric.value}</p>
@@ -194,31 +237,55 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
         </section>
       )}
 
-      {/* Grid Specs */}
+      {/* Grid Content */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
-        {/* Left 2 Cols: Deep-Dive */}
+        {/* Main Content Area */}
         <div className="lg:col-span-2 space-y-12">
-          {/* Overview */}
+          {/* Executive Overview */}
           <section>
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-              <FaCode className="text-purple" /> Project Overview
+              <FaCode className="text-purple" /> Executive Overview
             </h2>
             <p className="text-white/70 leading-relaxed text-base">
               {project.overview}
             </p>
           </section>
 
-          {/* Architecture */}
+          {/* Problem Statement */}
+          {project.problemStatement && (
+            <section className="p-6 bg-white/[0.02] rounded-2xl border border-white/10">
+              <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                <FaLightbulb className="text-amber-400" /> Problem Statement & Objective
+              </h2>
+              <p className="text-white/70 text-sm leading-relaxed">
+                {project.problemStatement}
+              </p>
+            </section>
+          )}
+
+          {/* System Architecture */}
           <section>
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-              <FaServer className="text-purple" /> System Architecture & Design
+              <FaServer className="text-purple" /> System Architecture & Data Flow
             </h2>
             <p className="text-white/70 leading-relaxed text-base">
               {project.architecture}
             </p>
           </section>
 
-          {/* Key Features */}
+          {/* Database Design */}
+          {project.databaseDesign && (
+            <section>
+              <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <FaDatabase className="text-purple" /> Database Design & Schemas
+              </h2>
+              <p className="text-white/70 leading-relaxed text-base">
+                {project.databaseDesign}
+              </p>
+            </section>
+          )}
+
+          {/* Key Engineering Features */}
           <section>
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
               <FaRocket className="text-purple" /> Key Engineering Features
@@ -237,37 +304,65 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           <section className="bg-white/[0.02] p-6 rounded-2xl border border-white/10 space-y-6">
             <div>
               <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
-                <FaShieldAlt className="text-amber-400" /> Engineering Challenge
+                <FaShieldAlt className="text-amber-400" /> Primary Engineering Challenge
               </h3>
               <p className="text-white/70 text-sm leading-relaxed">{project.challenges}</p>
             </div>
             <div className="border-t border-white/10 pt-6">
               <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
-                <FaCheckCircle className="text-emerald-400" /> Technical Solution
+                <FaCheckCircle className="text-emerald-400" /> Implemented Technical Solution
               </h3>
               <p className="text-white/70 text-sm leading-relaxed">{project.solutions}</p>
             </div>
           </section>
 
-          {/* API & Deployment */}
-          <section className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="p-5 border border-white/10 rounded-xl bg-white/[0.01]">
-              <h3 className="text-base font-semibold text-white mb-2">API Design</h3>
-              <p className="text-xs text-white/60 leading-relaxed">{project.api}</p>
-            </div>
-            <div className="p-5 border border-white/10 rounded-xl bg-white/[0.01]">
-              <h3 className="text-base font-semibold text-white mb-2">Cloud & Deployment</h3>
-              <p className="text-xs text-white/60 leading-relaxed">{project.deployment}</p>
-            </div>
-          </section>
+          {/* Security & Scalability */}
+          {(project.security || project.scalability) && (
+            <section className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {project.security && (
+                <div className="p-5 border border-white/10 rounded-xl bg-white/[0.01]">
+                  <h3 className="text-base font-semibold text-white mb-2 flex items-center gap-2">
+                    <FaLock className="text-purple" /> Security Controls
+                  </h3>
+                  <p className="text-xs text-white/60 leading-relaxed">{project.security}</p>
+                </div>
+              )}
+              {project.scalability && (
+                <div className="p-5 border border-white/10 rounded-xl bg-white/[0.01]">
+                  <h3 className="text-base font-semibold text-white mb-2 flex items-center gap-2">
+                    <FaServer className="text-purple" /> Scalability Strategy
+                  </h3>
+                  <p className="text-xs text-white/60 leading-relaxed">{project.scalability}</p>
+                </div>
+              )}
+            </section>
+          )}
+
+          {/* Lessons Learned & Future Roadmap */}
+          {(project.lessonsLearned || project.futureRoadmap) && (
+            <section className="space-y-6 border-t border-white/10 pt-8">
+              {project.lessonsLearned && (
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-2">Key Technical Takeaways</h3>
+                  <p className="text-sm text-white/70 leading-relaxed">{project.lessonsLearned}</p>
+                </div>
+              )}
+              {project.futureRoadmap && (
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-2">Future Roadmap & Improvements</h3>
+                  <p className="text-sm text-white/70 leading-relaxed">{project.futureRoadmap}</p>
+                </div>
+              )}
+            </section>
+          )}
         </div>
 
-        {/* Right 1 Col: Tech Stack & Metadata Sidebar */}
+        {/* Sidebar */}
         <aside className="space-y-8">
           {/* Tech Stack Pills */}
           <div className="p-6 bg-white/[0.02] rounded-2xl border border-white/10">
             <h3 className="text-sm font-mono uppercase tracking-wider text-white/40 mb-4">
-              Technologies Used
+              Technologies &amp; Libraries
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.techStackDetailed.map((tech, i) => (
@@ -284,24 +379,24 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           {/* Business Impact */}
           <div className="p-6 bg-white/[0.02] rounded-2xl border border-white/10">
             <h3 className="text-sm font-mono uppercase tracking-wider text-white/40 mb-2">
-              Business & User Impact
+              Business &amp; User Impact
             </h3>
             <p className="text-sm text-white/80 leading-relaxed">
               {project.businessImpact}
             </p>
           </div>
 
-          {/* Contact CTA Sidebar */}
+          {/* Contact CTA */}
           <div className="p-6 bg-gradient-to-br from-purple/20 to-black rounded-2xl border border-purple/30 text-center">
-            <h3 className="text-lg font-bold text-white mb-2">Have a similar project?</h3>
+            <h3 className="text-lg font-bold text-white mb-2">Interested in this stack?</h3>
             <p className="text-xs text-white/60 mb-4">
-              Sameer Khan is available for full-stack engineering consulting and software development.
+              Sameer Khan is available for full-stack software development and systems engineering.
             </p>
             <a
               href="mailto:sameerkhanorigin@gmail.com"
               className="inline-block w-full py-2.5 bg-purple text-white text-sm font-medium rounded-lg hover:bg-purple/90 transition-colors"
             >
-              Get in Touch
+              Contact Sameer Khan
             </a>
           </div>
         </aside>

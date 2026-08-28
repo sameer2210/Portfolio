@@ -75,14 +75,18 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Footer Navigation Links & Copyright */}
-        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/40 mb-4">
-          <Link href="/" className="hover:text-white transition-colors">Home</Link>
-          <Link href="/#about" className="hover:text-white transition-colors">About</Link>
-          <Link href="/#projects" className="hover:text-white transition-colors">Projects</Link>
-          <Link href="/#faq" className="hover:text-white transition-colors">FAQ</Link>
-          <a href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</a>
-          <a href="/rss.xml" className="hover:text-white transition-colors">RSS Feed</a>
+        {/* Deep Internal Links */}
+        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/50 mb-4 max-w-2xl text-center">
+          <Link href="/" className="hover:text-purple transition-colors">Home</Link>
+          <Link href="/#about" className="hover:text-purple transition-colors">About</Link>
+          <Link href="/#projects" className="hover:text-purple transition-colors">Projects</Link>
+          <Link href="/blog" className="hover:text-purple transition-colors font-medium text-white">Technical Blog</Link>
+          <Link href="/projects/spandavidya-ai" className="hover:text-purple transition-colors">SpandaVidya AI</Link>
+          <Link href="/projects/codex" className="hover:text-purple transition-colors">CodeX IDE</Link>
+          <Link href="/projects/filehive" className="hover:text-purple transition-colors">FileHive</Link>
+          <Link href="/#faq" className="hover:text-purple transition-colors">FAQ</Link>
+          <a href="/sitemap.xml" className="hover:text-purple transition-colors">Sitemap</a>
+          <a href="/rss.xml" className="hover:text-purple transition-colors">RSS Feed</a>
         </div>
 
         <p className="text-xs text-white/30 text-center font-mono">
