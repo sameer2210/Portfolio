@@ -42,9 +42,23 @@ export const metadata: Metadata = {
   publisher: siteConfig.name,
   category: "technology",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-64x64.png", sizes: "64x64", type: "image/png" },
+    ],
     shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      {
+        rel: "apple-touch-icon-precomposed",
+        url: "/apple-touch-icon.png",
+      },
+    ],
   },
   manifest: "/manifest.webmanifest",
   referrer: "origin-when-cross-origin",
@@ -70,7 +84,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "Sameer Khan - Full Stack Developer Portfolio",
+        alt: "Sameer Khan - Full Stack Developer & Software Engineer Portfolio",
         type: "image/png",
       },
     ],
@@ -114,6 +128,8 @@ export default function RootLayout({
       <head>
         <link rel="author" href={`${siteUrl}/humans.txt`} />
         <link rel="help" href={`${siteUrl}/security.txt`} />
+        <link rel="me" href={siteConfig.github} />
+        <link rel="me" href={siteConfig.linkedin} />
       </head>
       <body className={`${inter.variable} ${inter.className} bg-black text-white antialiased selection:bg-purple selection:text-white`}>
         <ThemeProvider
