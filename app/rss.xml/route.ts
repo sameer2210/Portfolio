@@ -2,6 +2,17 @@ import { appProjects, projects } from '@/data';
 import { blogPosts } from '@/data/blog';
 import { siteConfig, siteUrl } from '@/lib/seo';
 
+const escapeXml = (unsafe: string): string =>
+  unsafe
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+
+const cdata = (content: string): string =>
+  `<![CDATA[${content.replace(/\]\]>/g, ']]&gt;<![CDATA[')}]]>`;
+
 export async function GET() {
   const allProjects = [...projects, ...appProjects];
 
@@ -9,10 +20,10 @@ export async function GET() {
     .map(
       (p) => `
     <item>
-      <title><![CDATA[${p.title} - Case Study]]></title>
-      <link>${siteUrl}/projects/${p.slug}</link>
-      <guid>${siteUrl}/projects/${p.slug}</guid>
-      <description><![CDATA[${p.des} Tech Stack: ${p.techStackDetailed.join(', ')}]]></description>
+      <title>${cdata(`${p.title} - Case Study`)}</title>
+      <link>${escapeXml(`${siteUrl}/projects/${p.slug}`)}</link>
+      <guid>${escapeXml(`${siteUrl}/projects/${p.slug}`)}</guid>
+      <description>${cdata(`${p.des} Tech Stack: ${p.techStackDetailed.join(', ')}`)}</description>
       <pubDate>${new Date().toUTCString()}</pubDate>
     </item>`
     )
@@ -22,10 +33,10 @@ export async function GET() {
     .map(
       (b) => `
     <item>
-      <title><![CDATA[${b.title}]]></title>
-      <link>${siteUrl}/blog/${b.slug}</link>
-      <guid>${siteUrl}/blog/${b.slug}</guid>
-      <description><![CDATA[${b.excerpt}]]></description>
+      <title>${cdata(b.title)}</title>
+      <link>${escapeXml(`${siteUrl}/blog/${b.slug}`)}</link>
+      <guid>${escapeXml(`${siteUrl}/blog/${b.slug}`)}</guid>
+      <description>${cdata(b.excerpt)}</description>
       <pubDate>${new Date(b.publishedAt).toUTCString()}</pubDate>
     </item>`
     )
@@ -34,11 +45,11 @@ export async function GET() {
   const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${siteConfig.title}</title>
-    <link>${siteUrl}</link>
-    <description>${siteConfig.description}</description>
+    <title>${cdata(siteConfig.title)}</title>
+    <link>${escapeXml(siteUrl)}</link>
+    <description>${cdata(siteConfig.description)}</description>
     <language>en-IN</language>
-    <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="${escapeXml(`${siteUrl}/rss.xml`)}" rel="self" type="application/rss+xml"/>
     ${blogItemsXml}
     ${projectItemsXml}
   </channel>

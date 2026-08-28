@@ -533,7 +533,7 @@ export const appProjects: ProjectDetail[] = [
     futureRoadmap: 'Add offline model execution for basic cataract risk screening.',
     deployment: 'Standalone APK & TestFlight iOS distribution.',
     businessImpact: 'Allowed rural healthcare workers to conduct field screenings directly on smartphones.',
-    img: '/project/spandavidya-app.png',
+    img: '/project/SpandaVidya-app.png',
     iconLists: [
       '/icons/react.svg',
       '/icons/ts.svg',
